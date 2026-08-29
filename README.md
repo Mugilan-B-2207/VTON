@@ -32,20 +32,20 @@ The repository is organized into three purpose-built packages:
 
 ```mermaid
 graph TD
-    Root[AuraFit Ecosystem]
+    Root["AuraFit Ecosystem"]
     
-    Root --> FED[1. VTON_FED: Full-Stack Web App & Cloud API Hub]
-    Root --> GPU[2. VTON_Model_GPU: High-Performance CUDA Studio & Training]
-    Root --> CPU[3. VTON_Model_CPU: Standalone CPU Inference Engine]
+    Root --> FED["1. VTON_FED: Full-Stack Web App & Cloud API Hub"]
+    Root --> GPU["2. VTON_Model_GPU: High-Performance CUDA Studio & Training"]
+    Root --> CPU["3. VTON_Model_CPU: Standalone CPU Inference Engine"]
     
-    FED --> FED_FE[React + TypeScript + Vite + Tailwind UI (Vercel)]
-    FED --> FED_BE[FastAPI Distributed Parallel Generation Pool (Render)]
+    FED --> FED_FE["React + TypeScript + Vite + Tailwind UI (Vercel)"]
+    FED --> FED_BE["FastAPI Distributed Parallel Generation Pool (Render)"]
     
-    GPU --> GPU_INF[Real-Time FP16 CUDA Try-On Gradio Demo]
-    GPU --> GPU_EVAL[Batch Evaluation on Zalando & DressCode]
-    GPU --> GPU_TRAIN[End-to-End SDXL Diffusion Training Pipeline]
+    GPU --> GPU_INF["Real-Time FP16 CUDA Try-On Gradio Demo"]
+    GPU --> GPU_EVAL["Batch Evaluation on Zalando & DressCode"]
+    GPU --> GPU_TRAIN["End-to-End SDXL Diffusion Training Pipeline"]
     
-    CPU --> CPU_INF[CPU-Optimized Float32 Inpainting Engine]
+    CPU --> CPU_INF["CPU-Optimized Float32 Inpainting Engine"]
 ```
 
 ---
@@ -64,23 +64,23 @@ graph TD
 
 ```mermaid
 flowchart TD
-    subgraph 1. Feature Extraction & Geometry Parsing
-        A[User Image] --> B[OpenPose: 18 Keypoints]
-        A --> C[SCHP: Human Body Segmentation]
-        A --> D[DensePose: 3D Body Surface IUV Maps]
-        B & C & D --> E[Agnostic Mask Generator]
+    subgraph SG1 ["1. Feature Extraction & Geometry Parsing"]
+        A["User Image"] --> B["OpenPose: 18 Keypoints"]
+        A --> C["SCHP: Human Body Segmentation"]
+        A --> D["DensePose: 3D Body Surface IUV Maps"]
+        B & C & D --> E["Agnostic Mask Generator"]
     end
 
-    subgraph 2. Multimodal Conditioning
-        G[Garment Image] --> H[Garment Reference UNet Encoder]
-        G --> I[CLIP Vision Encoder]
-        T[Text Description] --> J[Dual CLIP Text Encoders]
+    subgraph SG2 ["2. Multimodal Conditioning"]
+        G["Garment Image"] --> H["Garment Reference UNet Encoder"]
+        G --> I["CLIP Vision Encoder"]
+        T["Text Description"] --> J["Dual CLIP Text Encoders"]
     end
 
-    subgraph 3. Diffusion Inpainting Synthesis
-        E & H & I & J --> K[SDXL Try-On Inpainting UNet]
-        K --> L[AutoencoderKL VAE Latent Decoder]
-        L --> M[High-Fidelity Virtual Try-On Image 768x1024]
+    subgraph SG3 ["3. Diffusion Inpainting Synthesis"]
+        E & H & I & J --> K["SDXL Try-On Inpainting UNet"]
+        K --> L["AutoencoderKL VAE Latent Decoder"]
+        L --> M["High-Fidelity Virtual Try-On Image 768x1024"]
     end
 ```
 
